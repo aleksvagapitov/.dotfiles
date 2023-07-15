@@ -1,0 +1,51 @@
+- name: Install nodejs and npm
+  become: true
+  apt:
+    name: ["nodejs", "npm"]
+  tags:
+    - install
+    - node
+
+- name: npmjs prefix
+  shell: mkdir -p ~/.local/.npm-global
+  tags:
+  - install
+  - node
+
+- name: add npmjs to path
+  shell: PATH=~/.local/.npm-global/bin:$PATH
+  tags:
+  - install
+  - node
+
+- name: npmjs global settings
+  shell: npm config set prefix '~/.local/.npm-global'
+  tags:
+  - install
+  - node
+
+- name: npmjs global settings export path in case I don't have dotfiles installed
+  shell: export PATH=~/.local/.npm-global/bin:$PATH
+  tags:
+  - install
+  - node
+  - npm-path
+
+- name: Install Latest Node
+  vars:
+    node_version: stable
+    n_repo: https://github.com/visionmedia/n
+  block:
+    - name: Ensure make is installed
+      apt: pkg=make state=latest
+    - name: ensure git is installed
+      apt: pkg=git-core state=latest
+    - name: download n
+      git: repo={{n_repo}} dest=/tmp/n
+    - name: install n
+      command: make -C /tmp/n
+    - name: install node 
+      command: n {{node_version}}
+  tags:
+    - install
+    - node

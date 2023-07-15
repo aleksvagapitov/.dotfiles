@@ -1,0 +1,33 @@
+- name: Install System Packages 
+  become: true
+  apt:
+    pkg:
+      - software-properties-common
+      - man
+      - vim
+      - neovim
+      - wget
+      - curl 
+      - nginx
+      - mosh 
+      - snapd
+      - ripgrep
+      - tmux
+      - make
+      - zsh
+    state: latest
+    update_cache: true
+  tags:
+    - install
+    - neovim
+    - core
+
+- name: Install neovim paq
+  ansible.builtin.git:
+    repo: "https://github.com/savq/paq-nvim.git"
+    dest: "{{ lookup ('env', 'HOME') }}/.local/share/nvim/site/pack/paqs/start/paq-nvim"
+    depth: 1 
+
+- name: Change permissions for paq directory
+  become: true 
+  shell: "chown -R {{ lookup ('env', 'USER') }} {{ lookup ('env', 'HOME') }}/.local/share"
