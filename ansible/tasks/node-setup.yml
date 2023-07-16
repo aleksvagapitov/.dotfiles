@@ -37,8 +37,10 @@
     n_repo: https://github.com/visionmedia/n
   block:
     - name: Ensure make is installed
+      become: true
       apt: pkg=make state=latest
     - name: ensure git is installed
+      become: true
       apt: pkg=git-core state=latest
     - name: download n
       git: repo={{n_repo}} dest=/tmp/n
