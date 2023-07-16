@@ -1,6 +1,7 @@
 - hosts: localhost
   pre_tasks:
   - name: Update Cache
+    become: true 
     apt:
       update-cache: true
     tags:
@@ -12,9 +13,9 @@
       - zsh
   tasks:
   - include: tasks/core.yml
-  - include: tasks/dotfiles.yml
   - include: tasks/golang.yml
   - include: tasks/node-setup.yml
   - include: tasks/npm-packages.yml
   - include: tasks/python.yml
   - include: tasks/zsh.yml
+  - include: tasks/dotfiles.yml
