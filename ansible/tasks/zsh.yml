@@ -4,12 +4,12 @@
     - zsh
 
 - name: Change shell
-  shell: chsh -s $(which zsh)
+  become_user: true 
+  shell: chsh $USER -s $(which zsh)
   tags:
     - zsh
 
 - name: Install ohmyzsh
-  become_user: user
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   tags:
     - zsh

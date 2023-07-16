@@ -45,8 +45,10 @@
     - name: download n
       git: repo={{n_repo}} dest=/tmp/n
     - name: install n
+      become: true
       command: make -C /tmp/n
-    - name: install node 
+    - name: install node
+      become: true
       command: n {{node_version}}
   tags:
     - install

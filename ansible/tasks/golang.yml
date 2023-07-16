@@ -28,6 +28,7 @@
     version: v4.16.2
   block:
   - name: Download the specified release of migrate and unpack it in /usr/local/bin
+    become: true
     unarchive:
       src: https://github.com/golang-migrate/migrate/releases/download/{{version}}/migrate.linux-amd64.tar.gz
       dest: /usr/local/bin/
