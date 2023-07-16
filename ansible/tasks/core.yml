@@ -1,4 +1,5 @@
 - name: Add neovim repository 
+  become: true
   ansible.builtin.apt_repository:
     repo: ppa:neovim-ppa/unstable
 

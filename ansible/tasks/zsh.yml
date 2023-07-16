@@ -4,7 +4,7 @@
     - zsh
 
 - name: Change shell
-  become_user: true 
+  become: true 
   shell: chsh $USER -s $(which zsh)
   tags:
     - zsh
