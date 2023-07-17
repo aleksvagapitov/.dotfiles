@@ -6,6 +6,5 @@ fi
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
     echo "stow $folder"
-    stow -D $folder
-    stow $folder
+    stow --adopt $folder
 done
