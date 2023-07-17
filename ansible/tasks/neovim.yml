@@ -15,7 +15,6 @@
     - neovim
 
 - name: Run Paq Install
-  become_user: user 
   shell: ~/.config/nvim && nvim --headless -u paq.lua +so +PaqUninstall +q 
   tags:
     - neovim
