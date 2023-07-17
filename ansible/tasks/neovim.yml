@@ -1,0 +1,21 @@
+- name: Install neovim paq
+  ansible.builtin.git:
+    repo: "https://github.com/savq/paq-nvim.git"
+    dest: "~/.local/share/nvim/site/pack/paqs/start/paq-nvim"
+    depth: 1
+  tags:
+    - neovim
+
+- name: Change permissions for share directory
+  file:
+    path: $HOME/.local/share 
+    owner: "{{ ansible_effective_user_id }}"
+    group: "{{ ansible_effective_group_id }}"
+  tags:
+    - neovim
+
+- name: Run Paq Install
+  become_user: user 
+  shell: ~/.config/nvim && nvim --headless -u paq.lua +so +PaqUninstall +q 
+  tags:
+    - neovim

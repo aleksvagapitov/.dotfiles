@@ -8,3 +8,5 @@ do
     echo "stow $folder"
     stow --adopt $folder
 done
+
+git reset --hard
