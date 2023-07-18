@@ -11,6 +11,7 @@
       - node
       - python
       - zsh
+      - dotnet
   tasks:
   - include: tasks/core.yml
   - include: tasks/zsh.yml
@@ -20,3 +21,4 @@
   - include: tasks/node-setup.yml
   - include: tasks/npm-packages.yml
   - include: tasks/python.yml
+  - include: tasks/dotnet.yml

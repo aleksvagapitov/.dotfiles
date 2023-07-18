@@ -18,21 +18,23 @@
     - name: install apt packages
       become: true
       apt:
-        - dirmngr
-        - gnupg 
-        - apt-transport-https 
-        - ca-certificates 
-        - software-properties-common
+        pkg:
+          - dirmngr
+          - gnupg 
+          - apt-transport-https 
+          - ca-certificates 
+          - software-properties-common
     - name: add mono apt key
       apt_key:
         keyserver: "hkp://keyserver.ubuntu.com:80"
         id: "3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
-
+        state: present
+      environment:
+        APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE: 1
     - name: Add mono apt repo
       apt_repository:
         repo: "deb https://download.mono-project.com/repo/ubuntu stable-focal main"
         state: present
-
     - name: Install mono
       become: true
       apt:
