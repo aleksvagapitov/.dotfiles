@@ -14,7 +14,7 @@
   tags:
     - neovim
 
-      # - name: Run Paq Install
-      # shell: ~/.config/nvim && nvim --headless -u paq.lua +so +PaqUninstall +q 
-      # tags:
-      # - neovim
+- name: Run Paq Install
+  shell: cd $HOME/.config/nvim && nvim --headless +so +PaqInstall +q 
+  tags:
+  - neovim
