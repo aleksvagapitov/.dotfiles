@@ -8,8 +8,8 @@
       command: chmod +x ./dotnet-install.sh
     - name: install dotnet
       command: ./dotnet-install.sh --channel 7.0
-    - name: install csharp-ls
-      command: dotnet tool install --global csharp-ls
+      # - name: install csharp-ls
+      # command: dotnet tool install --global csharp-ls
 
 - name: mono installation
   tags:
