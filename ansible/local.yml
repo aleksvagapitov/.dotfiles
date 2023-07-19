@@ -14,11 +14,11 @@
       - dotnet
   tasks:
   - include: tasks/core.yml
+  - include: tasks/node-setup.yml
+  - include: tasks/npm-packages.yml
   - include: tasks/zsh.yml
   - include: tasks/dotfiles.yml
   - include: tasks/neovim.yml
   - include: tasks/dotnet.yml
   - include: tasks/golang.yml
-  - include: tasks/node-setup.yml
-  - include: tasks/npm-packages.yml
   - include: tasks/python.yml
