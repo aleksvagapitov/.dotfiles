@@ -25,6 +25,7 @@
           - ca-certificates 
           - software-properties-common
     - name: add mono apt key
+      become: true
       apt_key:
         keyserver: "keyserver.ubuntu.com"
         id: "3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
@@ -32,6 +33,7 @@
       environment:
         APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE: 1
     - name: Add mono apt repo
+      become: true
       apt_repository:
         repo: "deb https://download.mono-project.com/repo/ubuntu stable-focal main"
         state: present
