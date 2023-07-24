@@ -1,5 +1,3 @@
-require("core")
-
 require "paq" { 
     "savq/paq-nvim"; 
     "OmniSharp/omnisharp-vim"; 
@@ -13,4 +11,6 @@ require "paq" {
     {"neoclide/coc.nvim",·branch="release", run="yarn build"}; 
     'junegunn/fzf'; 
     'akinsho/toggleterm.nvim'; 
-} 
+}
+
+require("core")
