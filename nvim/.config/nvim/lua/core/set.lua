@@ -1,5 +1,3 @@
--- vim.cmd[[colorscheme dracula]]
-
 vim.g.OmniSharp_server_use_net6 = 1
 vim.g.OmniSharp_selector_ui = 'fzf'
 vim.g.OmniSharp_selector_findusages = 'fzf'
@@ -39,4 +37,4 @@ vim.opt.colorcolumn = "80"
 -- everything in utf-8
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
-vim.opt.termencoding = "utf-8"
+-- vim.opt.termencoding = "utf-8"

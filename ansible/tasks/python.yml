@@ -8,3 +8,8 @@
     update_cache: true
   tags:
     - python
+
+- name: Install Poetry
+  command: curl -sSL https://install.python-poetry.org | python3 - 
+  tags:
+    - python

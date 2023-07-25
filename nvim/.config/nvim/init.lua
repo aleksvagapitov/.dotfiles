@@ -10,7 +10,8 @@ require "paq" {
     "mhinz/vim-signify"; 
     {"neoclide/coc.nvim",·branch="release", run="yarn build"}; 
     'junegunn/fzf'; 
-    'akinsho/toggleterm.nvim'; 
+    'akinsho/toggleterm.nvim';
+--    { 'fatih/vim-go', run = ":GoUpdateBinaries" }; 
 }
 
 require("core")
