@@ -11,7 +11,8 @@ require "paq" {
     {"neoclide/coc.nvim",·branch="release", run="yarn build"}; 
     'junegunn/fzf'; 
     'akinsho/toggleterm.nvim';
---    { 'fatih/vim-go', run = ":GoUpdateBinaries" }; 
+    'ojroques/nvim-osc52';
+    --    { 'fatih/vim-go', run = ":GoUpdateBinaries" }; 
 }
 
 require("core")

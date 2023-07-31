@@ -1,0 +1,11 @@
+tsserver.restart
+tsserver.reloadProjects
+tsserver.restart
+tsserver.restart
+tsserver.restart
+tsserver.restart
+tsserver.restart
+pyright.organizeimports
+go.gopls.tidy
+go.test.toggle
+go.test.toggle
