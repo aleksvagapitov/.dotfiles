@@ -1,5 +1,5 @@
 - name: Clone LeetCode repo                                         
-    git:                                                                          
+  git:                                                                          
     repo: git@github.com:aleksvagapitov/LeetCode.git 
     dest: "~/LeetCode"                                                         
     accept_hostkey: yes                                                         
@@ -8,7 +8,7 @@
     - repositories
 
 - name: Clone DSA repo                                         
-    git:                                                                          
+  git:                                                                          
     repo: git@github.com:aleksvagapitov/dsa.git 
     dest: "~/DSA"                                                         
     accept_hostkey: yes                                                         
@@ -17,7 +17,7 @@
     - repositories
 
 - name: Clone kata-machine repo                                         
-    git:                                                                          
+  git:                                                                          
     repo: git@github.com:aleksvagapitov/kata-machine.git 
     dest: "~/kata-machine"                                                         
     accept_hostkey: yes                                                         
