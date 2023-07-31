@@ -12,6 +12,7 @@
       - python
       - zsh
       - dotnet
+      - github
   tasks:
   - include: tasks/core.yml
   - include: tasks/node-setup.yml
@@ -22,3 +23,4 @@
   - include: tasks/dotnet.yml
   - include: tasks/golang.yml
   - include: tasks/python.yml
+  - include: tasks/repositories.yml
