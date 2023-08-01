@@ -14,7 +14,6 @@
       - wget
       - curl 
       - nginx
-      - mosh 
       - snapd
       - ripgrep
       - tmux

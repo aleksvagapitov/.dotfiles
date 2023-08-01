@@ -6,6 +6,7 @@
       update-cache: true
     tags:
       - core
+      - mosh
       - dotfiles
       - go
       - node
@@ -15,6 +16,7 @@
       - github
   tasks:
   - include: tasks/core.yml
+  - include: tasks/mosh.yml
   - include: tasks/node-setup.yml
   - include: tasks/zsh.yml
   - include: tasks/dotfiles.yml
