@@ -10,6 +10,7 @@
     - python
 
 - name: Install Poetry
+  become: true
   command: curl -sSL https://install.python-poetry.org | python3 - 
   tags:
     - python
