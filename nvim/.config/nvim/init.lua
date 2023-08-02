@@ -1,7 +1,8 @@
 require "paq" { 
     "savq/paq-nvim"; 
     "OmniSharp/omnisharp-vim"; 
-    "preservim/nerdtree"; 
+    "nvim-tree/nvim-tree.lua";
+    "nvim-tree/nvim-web-devicons";
     "dense-analysis/ale"; 
     "BurntSushi/ripgrep";  
     "nvim-lua/plenary.nvim"; 

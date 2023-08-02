@@ -1,4 +1,8 @@
 tsserver.restart
+tsserver.restart
+tsserver.restart
+tsserver.restart
+tsserver.restart
 tsserver.reloadProjects
 tsserver.restart
 tsserver.restart
