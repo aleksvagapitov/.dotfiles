@@ -14,6 +14,9 @@
       - zsh
       - dotnet
       - github
+  - name: Wait for sudo
+    become: yes
+    shell:  while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
   tasks:
   - include: tasks/core.yml
   - include: tasks/mosh.yml

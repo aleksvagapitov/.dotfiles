@@ -1,7 +1,3 @@
-- name: Wait for sudo
-  become: yes
-  shell:  while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
-
 - name: Add neovim repository 
   become: true
   ansible.builtin.apt_repository:
