@@ -2,3 +2,4 @@
 yarn.lock
 configstore
 dotnet-install.sh
+*coc-go-data
