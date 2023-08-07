@@ -15,6 +15,9 @@
   tags:
     - zsh
 
+- name: Delete previous installation
+  command: rm -rf ~/.oh-my-zsh
+
 - name: Install ohmyzsh
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   tags:
