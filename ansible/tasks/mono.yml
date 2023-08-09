@@ -1,0 +1,32 @@
+- name: mono installation
+  tags:
+    - dotnet
+  block:
+    - name: install apt packages
+      become: true
+      apt:
+        pkg:
+          - dirmngr
+          - gnupg 
+          - apt-transport-https 
+          - ca-certificates 
+          - software-properties-common
+    - name: add mono apt key
+      become: true
+      apt_key:
+        keyserver: "keyserver.ubuntu.com"
+        id: "3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
+        state: present
+      environment:
+        APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE: 1
+    - name: Add mono apt repo
+      become: true
+      apt_repository:
+        repo: "deb https://download.mono-project.com/repo/ubuntu stable-focal main"
+        state: present
+    - name: Install mono
+      become: true
+      apt:
+        name: "mono-complete"
+        update_cache: yes
+        state: latest
