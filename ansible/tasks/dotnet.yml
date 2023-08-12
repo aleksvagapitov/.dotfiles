@@ -3,7 +3,7 @@
     - dotnet
   block:
     - name: Download dotnet install
-      command: wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+      command: wget https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh -O dotnet-install.sh
     - name: make dotnet install executable 
       command: chmod +x ./dotnet-install.sh
     - name: install dotnet
