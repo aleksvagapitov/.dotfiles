@@ -24,3 +24,12 @@
     key_file: "~/.ssh/github"
   tags:
     - repositories
+
+- name: Clone Udemy repo                                         
+  git:                                                                          
+    repo: git@github.com:aleksvagapitov/Udemy.git 
+    dest: "~/Udemy"                                                         
+    accept_hostkey: yes                                                         
+    key_file: "~/.ssh/github"
+  tags:
+    - repositories

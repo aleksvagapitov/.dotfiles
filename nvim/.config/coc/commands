@@ -1,3 +1,4 @@
+tsserver.reloadProjects
 pyright.restartserver
 pyright.restartserver
 tsserver.restart
