@@ -16,6 +16,13 @@ vim.keymap.set("n", "<C-l>", ":+tabnext<cr>")
 vim.keymap.set("n", "<C-t>", ":tabnew<cr>")
 vim.keymap.set("n", "<C-w>", ":tabc<cr>")
 
+
+-- Moving Line
+vim.keymap.set("n", "<C-j>", ":m .+1<cr>==")
+vim.keymap.set("n", "<C-k>", ":m .-2<cr>==")
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<C-k>", ":m '>-2<CR>gv=gv")
+
 vim.keymap.set("n", "<leader>vwm", function()
     require("vim-with-me").StartVimWithMe()
 end)
