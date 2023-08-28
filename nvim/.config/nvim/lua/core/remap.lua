@@ -10,12 +10,17 @@ vim.keymap.set("n", "<Down>", "<nop>")
 vim.keymap.set("n", "<Left>", "<nop>")
 vim.keymap.set("n", "<Right>", "<nop>")
 
+-- Split Panes
+vim.keymap.set("n", "<C-w>", ":wincmd k<cr>")
+vim.keymap.set("n", "<C-s>", ":wincmd j<cr>")
+vim.keymap.set("n", "<C-a>", ":wincmd h<cr>")
+vim.keymap.set("n", "<C-d>", ":wincmd l<cr>")
+
 -- Tabs
 vim.keymap.set("n", "<C-h>", ":-tabnext<cr>")
 vim.keymap.set("n", "<C-l>", ":+tabnext<cr>")
 vim.keymap.set("n", "<C-t>", ":tabnew<cr>")
-vim.keymap.set("n", "<C-w>", ":tabc<cr>")
-
+vim.keymap.set("n", "<C-c>", ":tabc<cr>")
 
 -- Moving Line
 vim.keymap.set("n", "<C-j>", ":m .+1<cr>==")
@@ -38,9 +43,6 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
-
--- This is going to get me cancelled
-vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")

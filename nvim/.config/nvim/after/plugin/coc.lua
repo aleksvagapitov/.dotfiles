@@ -19,6 +19,10 @@ on_ft('cs', function()
     vim.keymap.set("n", "gr", ":OmniSharpFindUsages<CR>", {silent = true})
 end)
 
+on_ft('vue', function()
+    vim.keymap.set('n', '<leader>split', ":CocCommand volar.action.splitEditors<CR>", { silent = true})
+end)
+
 vim.keymap.set("n", "gd", "<Plug>(coc-definition)", {silent = true})
 vim.keymap.set("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
 vim.keymap.set("n", "gi", "<Plug>(coc-implementation)", {silent = true})
