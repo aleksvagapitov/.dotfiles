@@ -9,24 +9,23 @@
       - mosh
       - dotfiles
       - go
-      - node
+      - bun
       - python
       - zsh
       - dotnet
       - github
-      - bun
   - name: Wait for sudo
     become: yes
     shell:  while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
   tasks:
   - include: tasks/core.yml
   - include: tasks/mosh.yml
-  - include: tasks/node-setup.yml
+  - include: tasks/bun.yml
+  - include: tasks/bun-packages.yml
   - include: tasks/zsh.yml
   - include: tasks/dotfiles.yml
   - include: tasks/neovim.yml
   - include: tasks/bun.yml
-  - include: tasks/npm-packages.yml
   - include: tasks/dotnet.yml
   - include: tasks/golang.yml
   - include: tasks/python.yml

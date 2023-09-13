@@ -1,38 +1,30 @@
 - name: Install eslint
   become: true
-  command: 
-  npm:
-    name: eslint
-    global: yes
+  command: bun add --global eslint
   tags:
     - install
-    - node
+    - bun
 - name: Install Typescript server
   become: true
-  npm:
-    name: typescript-language-server
-    global: yes
+  command: bun add --global typescript-language-server
   tags:
     - install
-    - node
+    - bun
 - name: Install Typescript
   become: true
-  npm:
-    name: typescript
-    global: yes
+  command: bun add --global typescript
   tags:
     - install
-    - node
+    - bun
 - name: Install TS-Node
   become: true
-  npm:
-    name: ts-node
-    global: yes
+  command: bun add --global ts-node
   tags:
     - install
-    - node
+    - bun
 - name: Install @vue/cli
   become: true
-  npm:
-    name: "@vue/cli"
-    global: true
+  command: bun add --global "@vue/cli" 
+  tags:
+    - install
+    - bun
