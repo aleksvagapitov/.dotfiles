@@ -7,3 +7,16 @@
   shell: curl -fsSL https://bun.sh/install | bash
   tags:
     - bun
+
+- name: Change shell
+  vars:
+    the_user: "{{ ansible_user_id }}"
+  block:
+    - name: change user shell to zsh
+      become: true
+      user:
+        name: "{{ the_user }}"
+        shell: /bin/zsh
+  tags:
+    - bun
+
