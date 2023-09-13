@@ -3,28 +3,28 @@
   command: bun add --global eslint
   tags:
     - install
-    - bun
+    - bunpackages
 - name: Install Typescript server
   become: true
   command: bun add --global typescript-language-server
   tags:
     - install
-    - bun
+    - bunpackages
 - name: Install Typescript
   become: true
   command: bun add --global typescript
   tags:
     - install
-    - bun
+    - bunpackages
 - name: Install TS-Node
   become: true
   command: bun add --global ts-node
   tags:
     - install
-    - bun
+    - bunpackages
 - name: Install @vue/cli
   become: true
   command: bun add --global "@vue/cli" 
   tags:
     - install
-    - bun
+    - bunpackages

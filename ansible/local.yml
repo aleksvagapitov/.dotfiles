@@ -10,6 +10,7 @@
       - dotfiles
       - go
       - bun
+      - bunpackages
       - python
       - zsh
       - dotnet
