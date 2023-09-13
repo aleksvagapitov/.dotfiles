@@ -1,3 +1,8 @@
+- name: Install zip
+  apt: name=zip
+  tags:
+    - bun
+
 - name: bun installation
   shell: curl -fsSL https://bun.sh/install | bash
   tags:
