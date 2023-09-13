@@ -14,6 +14,7 @@
       - zsh
       - dotnet
       - github
+      - bun
   - name: Wait for sudo
     become: yes
     shell:  while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
@@ -24,6 +25,7 @@
   - include: tasks/zsh.yml
   - include: tasks/dotfiles.yml
   - include: tasks/neovim.yml
+  - include: tasks/bun.yml
   - include: tasks/npm-packages.yml
   - include: tasks/dotnet.yml
   - include: tasks/golang.yml
