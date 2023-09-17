@@ -9,6 +9,7 @@
       - mosh
       - dotfiles
       - go
+      - bun
       - node
       - python
       - zsh
@@ -20,6 +21,7 @@
   tasks:
   - include: tasks/core.yml
   - include: tasks/mosh.yml
+  - include: tasks/bun.yml
   - include: tasks/node-setup.yml
   - include: tasks/zsh.yml
   - include: tasks/dotfiles.yml

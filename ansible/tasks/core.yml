@@ -19,9 +19,11 @@
       - tmux
       - make
       - zsh
+      - zip
     state: latest
     update_cache: true
   tags:
     - install
     - neovim
+    - bun
     - core
