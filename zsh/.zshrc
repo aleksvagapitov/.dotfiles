@@ -42,3 +42,7 @@ export PATH=$PATH:/usr/local/go/bin
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
 export PATH=$HOME/.local/bin:$PATH
+# bun
+[ -s "/home/user/.bun/_bun" ] && source "/home/user/.bun/_bun"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
