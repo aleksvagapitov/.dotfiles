@@ -5,6 +5,10 @@
 -- autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
 -- autocmd FileType cs nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR
 
+
+vim.cmd("autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')");
+vim.cmd("autocmd BufWritePre *.cs :silent OmniSharpFixUsings");
+
 local function on_ft(ft, cb)
     vim.api.nvim_create_autocmd('FileType', {
         group = init_lua_augroup,
