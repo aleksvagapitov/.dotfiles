@@ -40,6 +40,7 @@ export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 export PATH="/usr/local/opt/python@3.9/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export DOTNET_ROOT=$HOME/.dotnet
+export GOPATH="$HOME/.local/share/go"
 export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
 export PATH=$HOME/.local/bin:$PATH
 # bun
