@@ -19,6 +19,9 @@
   tags:
   - neovim
 
+- name: Wait until package.json is present before continuing
+  ansible.builtin.wait_for:
+    path: $HOME/.local/share/nvim/site/pack/paqs/start/coc.nvim/package.json 
 
 - name: Install COC
   shell: cd $HOME/.local/share/nvim/site/pack/paqs/start/coc.nvim/ && npm install
