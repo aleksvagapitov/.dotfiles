@@ -1,3 +1,12 @@
+- name: Clone aleksvagapitov repo                                         
+  git:                                                                          
+    repo: git@github.com:aleksvagapitov/aleksvagapitov.github.io.git 
+    dest: "~/aleksvagapitov.github.io"                                                         
+    accept_hostkey: yes                                                         
+    key_file: "~/.ssh/github"
+  tags:
+    - repositories
+
 - name: Clone LeetCode repo                                         
   git:                                                                          
     repo: git@github.com:aleksvagapitov/LeetCode.git 
@@ -16,19 +25,19 @@
   tags:
     - repositories
 
-- name: Clone kata-machine repo                                         
+- name: Clone Udemy repo                                         
   git:                                                                          
-    repo: git@github.com:aleksvagapitov/kata-machine.git 
-    dest: "~/kata-machine"                                                         
+    repo: git@github.com:aleksvagapitov/Udemy.git 
+    dest: "~/Udemy"                                                         
     accept_hostkey: yes                                                         
     key_file: "~/.ssh/github"
   tags:
     - repositories
 
-- name: Clone Udemy repo                                         
+- name: Clone kata-machine repo                                         
   git:                                                                          
-    repo: git@github.com:aleksvagapitov/Udemy.git 
-    dest: "~/Udemy"                                                         
+    repo: git@github.com:aleksvagapitov/kata-machine.git 
+    dest: "~/kata-machine"                                                         
     accept_hostkey: yes                                                         
     key_file: "~/.ssh/github"
   tags:
