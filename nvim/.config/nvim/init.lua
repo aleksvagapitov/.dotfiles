@@ -1,20 +1,58 @@
-require "paq" { 
-    "savq/paq-nvim"; 
-    "OmniSharp/omnisharp-vim"; 
-    "nvim-tree/nvim-tree.lua";
-    "nvim-tree/nvim-web-devicons";
-    "dense-analysis/ale"; 
-    "BurntSushi/ripgrep";  
-    "nvim-lua/plenary.nvim"; 
-    "nvim-treesitter/nvim-treesitter";
-    "nvim-treesitter/nvim-treesitter-context";
-    {"nvim-telescope/telescope.nvim", branch="0.1.x"}; 
-    "prabirshrestha/asyncomplete.vim"; 
-    "mhinz/vim-signify"; 
-    {"neoclide/coc.nvim", branch="release", build="yarn build"}; 
-    'junegunn/fzf'; 
-    'akinsho/toggleterm.nvim';
-    'ojroques/nvim-osc52';
+vim.loader.enable()
+
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+
+vim.opt.rtp:prepend(lazypath)
+
+local ops = {
+	change_detection = {
+		notify = false
+	}
 }
 
-require("core")
+require("config.options")
+
+require("lazy").setup({
+
+	spec = {
+		{ import = "plugins" },
+	},
+	install = { colorscheme = { "nightfox", "habamax" } },
+	change_detection = {
+		notify = false
+	},
+	performance = {
+		rtp = {
+			-- disable some rtp plugins
+			disabled_plugins = {
+				"gzip",
+				-- "matchit",
+				-- "matchparen",
+				"man",
+				"rplugin",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	}
+})
+
+require("config.autocmds")
+require("config.keymap")
