@@ -7,37 +7,19 @@
   tags:
     - repositories
 
-- name: Clone LeetCode repo                                         
+- name: Clone Courses repo                                         
   git:                                                                          
-    repo: git@github.com:aleksvagapitov/LeetCode.git 
-    dest: "~/LeetCode"                                                         
+    repo: git@github.com:aleksvagapitov/Courses.git 
+    dest: "~/Courses"                                                         
     accept_hostkey: yes                                                         
     key_file: "~/.ssh/github"
   tags:
     - repositories
 
-- name: Clone DSA repo                                         
+- name: Clone Practice repo                                         
   git:                                                                          
-    repo: git@github.com:aleksvagapitov/dsa.git 
-    dest: "~/DSA"                                                         
-    accept_hostkey: yes                                                         
-    key_file: "~/.ssh/github"
-  tags:
-    - repositories
-
-- name: Clone Udemy repo                                         
-  git:                                                                          
-    repo: git@github.com:aleksvagapitov/Udemy.git 
-    dest: "~/Udemy"                                                         
-    accept_hostkey: yes                                                         
-    key_file: "~/.ssh/github"
-  tags:
-    - repositories
-
-- name: Clone kata-machine repo                                         
-  git:                                                                          
-    repo: git@github.com:aleksvagapitov/kata-machine.git 
-    dest: "~/kata-machine"                                                         
+    repo: git@github.com:aleksvagapitov/Practice.git 
+    dest: "~/Practice"                                                         
     accept_hostkey: yes                                                         
     key_file: "~/.ssh/github"
   tags:
