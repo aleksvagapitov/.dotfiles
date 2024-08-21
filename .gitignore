@@ -3,4 +3,4 @@ yarn.lock
 configstore
 dotnet-install.sh
 *coc-go-data
-nvim/.config/coc/commands
+nvim/.config/coc
