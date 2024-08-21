@@ -29,6 +29,6 @@
   - neovim
     
 - name: Install COC Extensions
-  shell: cd $HOME/.config/coc/extensions && npm install
+  shell: cd $HOME/.config/nvim && nvim --headless +"CocInstall -sync coc-css coc-json coc-tsserver coc-html coc-go coc-vetur coc-pyright @yaegassy/coc-volar @yaegassy/coc-volar-tools" +qall
   tags:
   - neovim
