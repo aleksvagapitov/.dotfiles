@@ -15,6 +15,7 @@
       - zsh
       - dotnet
       - github
+      - node
   - name: Wait for sudo
     become: yes
     shell:  while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
@@ -28,4 +29,5 @@
   - import_tasks: tasks/dotnet.yml
   - import_tasks: tasks/golang.yml
   - import_tasks: tasks/python.yml
+  - import_tasks: tasks/node.yml
   - import_tasks: tasks/repositories.yml

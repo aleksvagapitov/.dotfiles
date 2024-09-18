@@ -1,0 +1,21 @@
+- name: Install npm
+  become: true
+  apt:
+    name: npm
+    state: present
+  tags:
+    - node
+
+- name: Install Node.js version manager 'n' globally
+  become: true
+  npm:
+    name: n
+    global: yes
+  tags:
+    - node
+
+- name: Upgrade to the latest stable version of Node.js
+  become: true
+  command: n stable
+  tags:
+    - node
