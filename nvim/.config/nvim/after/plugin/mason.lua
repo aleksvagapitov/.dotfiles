@@ -4,8 +4,8 @@ require("mason-lspconfig").setup({
     ensure_installed = {
         "gopls",     -- Go
         "omnisharp", -- C#
-        "pyright",   -- Python
-        "ts_ls"      -- TypeScript (formerly tsserver)
+        "pylsp",     -- Python
+        "eslint"     -- TypeScript 
     }
 })
 
@@ -19,11 +19,12 @@ lspconfig.gopls.setup{}
 lspconfig.omnisharp.setup{}
 
 -- Python
-lspconfig.pyright.setup{}
+lspconfig.pylsp.setup{}
 
 -- TypeScript (using ts_ls)
-lspconfig.ts_ls.setup{
-    on_attach = function(client, bufnr)
-        -- Optional additional TypeScript setup here
-    end,
+lspconfig.eslint.setup{
+    cmd = { "bun", "eslint", "--stdio" },
+    settings = {
+        workingDirectory = { mode = "auto" }
+    }
 }
