@@ -21,12 +21,10 @@
   tasks:
   - import_tasks: tasks/core.yml
   - import_tasks: tasks/mosh.yml
-  - import_tasks: tasks/node-setup.yml
   - import_tasks: tasks/zsh.yml
   - import_tasks: tasks/bun.yml
   - import_tasks: tasks/dotfiles.yml
   - import_tasks: tasks/neovim.yml
-  - import_tasks: tasks/npm-packages.yml
   - import_tasks: tasks/dotnet.yml
   - import_tasks: tasks/golang.yml
   - import_tasks: tasks/python.yml
