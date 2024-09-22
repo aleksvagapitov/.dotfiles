@@ -6,7 +6,6 @@
       update-cache: true
     tags:
       - core
-      - mosh
       - dotfiles
       - go
       - bun
@@ -21,7 +20,6 @@
     shell:  while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
   tasks:
   - import_tasks: tasks/core.yml
-  - import_tasks: tasks/mosh.yml
   - import_tasks: tasks/zsh.yml
   - import_tasks: tasks/bun.yml
   - import_tasks: tasks/dotfiles.yml
