@@ -17,6 +17,7 @@ require "paq" {
     "williamboman/mason.nvim";
     "williamboman/mason-lspconfig.nvim";
     "neovim/nvim-lspconfig"; 
+    "tpope/vim-commentary";
 }
 
 require("core")

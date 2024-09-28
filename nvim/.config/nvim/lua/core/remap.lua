@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 -- Basic Remaps
 vim.keymap.set("n", "<C-s>", ":w<cr>")
 
-
 -- Disable Arrow Keys
 vim.keymap.set("n", "<Up>", "<nop>")
 vim.keymap.set("n", "<Down>", "<nop>")
@@ -35,7 +34,6 @@ vim.keymap.set("n", "<leader>svwm", function()
     require("vim-with-me").StopVimWithMe()
 end)
 
-
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
@@ -53,3 +51,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- Comment/uncomment lines with Ctrl+/
+vim.keymap.set('n', '<C-_>', 'gcc', { noremap = true, silent = true }) -- For normal mode
+vim.keymap.set('v', '<C-_>', 'gc', { noremap = true, silent = true })  -- For visual mode
