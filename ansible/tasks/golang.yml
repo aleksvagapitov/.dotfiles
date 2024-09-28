@@ -1,6 +1,6 @@
 - name: golang installation
   vars:
-    version: 1.20.1
+    version: 1.23.1
   block:
     - name: Download go tar file
       command: wget https://go.dev/dl/go{{version}}.linux-amd64.tar.gz
@@ -25,7 +25,7 @@
 
 - name: Install migrate
   vars:
-    version: v4.16.2
+    version: v4.18.1
   block:
   - name: Download the specified release of migrate and unpack it in /usr/local/bin
     become: true

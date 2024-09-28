@@ -7,4 +7,4 @@
     - name: make dotnet install executable 
       command: chmod +x ./dotnet-install.sh
     - name: install dotnet
-      command: ./dotnet-install.sh --channel 7.0
+      command: ./dotnet-install.sh --channel 8.0

@@ -1,6 +1,3 @@
-*node_modules
-yarn.lock
 configstore
 dotnet-install.sh
-*coc-go-data
-nvim/.config/go
+nvim/.config/go/
