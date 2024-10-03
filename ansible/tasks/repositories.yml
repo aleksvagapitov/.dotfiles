@@ -1,26 +1,26 @@
 - name: Clone aleksvagapitov repo                                         
   git:                                                                          
     repo: git@github.com:aleksvagapitov/aleksvagapitov.github.io.git 
-    dest: "~/aleksvagapitov.github.io"                                                         
+    dest: "{{ ansible_env.HOME }}/aleksvagapitov.github.io"                                                         
     accept_hostkey: yes                                                         
-    key_file: "~/.ssh/github"
+    key_file: "{{ ansible_env.HOME }}/.ssh/github"
   tags:
     - repositories
 
 - name: Clone Courses repo                                         
   git:                                                                          
     repo: git@github.com:aleksvagapitov/Courses.git 
-    dest: "~/Courses"                                                         
+    dest: "{{ ansible_env.HOME }}/Courses"                                                         
     accept_hostkey: yes                                                         
-    key_file: "~/.ssh/github"
+    key_file: "{{ ansible_env.HOME }}/.ssh/github"
   tags:
     - repositories
 
 - name: Clone Practice repo                                         
   git:                                                                          
     repo: git@github.com:aleksvagapitov/Practice.git 
-    dest: "~/Practice"                                                         
+    dest: "{{ ansible_env.HOME }}/Practice"                                                         
     accept_hostkey: yes                                                         
-    key_file: "~/.ssh/github"
+    key_file: "{{ ansible_env.HOME }}/.ssh/github"
   tags:
     - repositories

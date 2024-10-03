@@ -1,31 +1,52 @@
 - hosts: localhost
   pre_tasks:
-  - name: Update Cache
-    become: true 
-    apt:
-      update-cache: true
-    tags:
-      - core
-      - dotfiles
-      - go
-      - bun
-      - node
-      - python
-      - zsh
-      - dotnet
-      - github
-      - node
-  - name: Wait for sudo
-    become: yes
-    shell:  while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
+    - name: Update Cache (Debian/Ubuntu)
+      become: true
+      apt:
+        update_cache: true
+      when: ansible_os_family == "Debian"
+      tags:
+        - core
+        - dotfiles
+        - go
+        - bun
+        - node
+        - python
+        - zsh
+        - dotnet
+        - github
+        - node
+
+    - name: Update Cache (macOS)
+      become: true
+      homebrew:
+        update_homebrew: true
+      when: ansible_os_family == "Darwin"
+      tags:
+        - core
+        - dotfiles
+        - go
+        - bun
+        - node
+        - python
+        - zsh
+        - dotnet
+        - github
+        - node
+
+    - name: Wait for sudo (Linux)
+      become: true
+      shell: while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
+      when: ansible_os_family == "Debian"
+
   tasks:
-  - import_tasks: tasks/core.yml
-  - import_tasks: tasks/zsh.yml
-  - import_tasks: tasks/bun.yml
-  - import_tasks: tasks/dotfiles.yml
-  - import_tasks: tasks/neovim.yml
-  - import_tasks: tasks/dotnet.yml
-  - import_tasks: tasks/golang.yml
-  - import_tasks: tasks/python.yml
-  - import_tasks: tasks/node.yml
-  - import_tasks: tasks/repositories.yml
+    - import_tasks: tasks/core.yml
+    - import_tasks: tasks/zsh.yml
+    - import_tasks: tasks/bun.yml
+    - import_tasks: tasks/dotfiles.yml
+    - import_tasks: tasks/neovim.yml
+    - import_tasks: tasks/dotnet.yml
+    - import_tasks: tasks/golang.yml
+    - import_tasks: tasks/python.yml
+    - import_tasks: tasks/node.yml
+    - import_tasks: tasks/repositories.yml

@@ -1,4 +1,4 @@
-- name: Install Python packages
+- name: Install Python packages (Debian/Ubuntu)
   become: true
   apt:
     pkg:
@@ -6,11 +6,22 @@
       - python3-venv
     state: latest
     update_cache: true
+  when: ansible_os_family == "Debian"
+  tags:
+    - python
+
+- name: Install Python packages (macOS)
+  become: true
+  homebrew:
+    name:
+      - python3
+    state: present
+  when: ansible_os_family == "Darwin"
   tags:
     - python
 
 - name: Install Poetry
   shell: |
-        curl -sSL https://install.python-poetry.org | python3 - 
+    curl -sSL https://install.python-poetry.org | python3 -
   tags:
     - python

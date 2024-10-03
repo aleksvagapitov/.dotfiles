@@ -1,13 +1,24 @@
-- name: Install zsh
-  apt: name=zsh
+- name: Install zsh (Debian/Ubuntu)
+  apt:
+    name: zsh
+    state: present
+  when: ansible_os_family == "Debian"
   tags:
     - zsh
 
-- name: Change shell
+- name: Install zsh (macOS)
+  homebrew:
+    name: zsh
+    state: present
+  when: ansible_os_family == "Darwin"
+  tags:
+    - zsh
+
+- name: Change shell to zsh
   vars:
     the_user: "{{ ansible_user_id }}"
   block:
-    - name: change user shell to zsh
+    - name: Change user shell to zsh
       become: true
       user:
         name: "{{ the_user }}"
@@ -15,31 +26,41 @@
   tags:
     - zsh
 
-- name: Delete previous installation
-  command: rm -rf ~/.oh-my-zsh
+- name: Delete previous oh-my-zsh installation
+  command: rm -rf "{{ ansible_env.HOME }}/.oh-my-zsh"
+  tags:
+    - zsh
 
-- name: Install ohmyzsh
+- name: Install oh-my-zsh
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   tags:
     - zsh
 
-- name: Install zsh-autosuggestions
+- name: Install zsh-autosuggestions plugin
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions'
-    dest: "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+  tags:
+    - zsh
 
-- name: Install zsh-syntax-highlighting
+- name: Install zsh-syntax-highlighting plugin
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
-    dest: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+  tags:
+    - zsh
 
-- name: Install zsh-completions
+- name: Install zsh-completions plugin
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-completions.git'
-    dest: "~/.oh-my-zsh/custom/plugins/zsh-completions"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-completions"
+  tags:
+    - zsh
 
-- name: Install zsh-autosuggestions
+- name: Install powerlevel10k theme
   ansible.builtin.git:
     repo: 'https://github.com/romkatv/powerlevel10k.git'
-    dest: "~/.oh-my-zsh/custom/themes/powerlevel10k"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/powerlevel10k"
     depth: 1
+  tags:
+    - zsh

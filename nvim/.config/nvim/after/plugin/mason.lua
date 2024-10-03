@@ -14,7 +14,13 @@ require("mason-lspconfig").setup({
     }
 })
 
+-- Setup LSP for OmniSharp (C#)
+lspconfig.omnisharp.setup{
+    -- You can add additional configurations if needed, but mason.nvim handles the installation
+    root_dir = lspconfig.util.root_pattern(".sln", ".csproj", ".git"),
+}
+
+-- Setup LSP for other languages
 lspconfig.gopls.setup{}
-lspconfig.omnisharp.setup{}
 lspconfig.pylsp.setup{}
 lspconfig['ts_ls'].setup{}

@@ -52,6 +52,21 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
--- Comment/uncomment lines with Ctrl+/
-vim.keymap.set('n', '<C-_>', 'gcc', { noremap = true, silent = true }) -- For normal mode
-vim.keymap.set('v', '<C-_>', 'gc', { noremap = true, silent = true })  -- For visual mode
+-- Replace all occurrences in the current file
+vim.keymap.set('n', '<leader>rf', function()
+    local old = vim.fn.input("Old string: ")
+    local new = vim.fn.input("New string: ")
+    vim.cmd(string.format("%%s/%s/%s/gc", old, new))
+  end, { desc = "Replace all occurrences in current file" })
+  
+  -- Replace all occurrences across all files in the project
+vim.keymap.set('n', '<leader>ra', function()
+    local old = vim.fn.input("Old string: ")
+    local new = vim.fn.input("New string: ")
+    -- Use ripgrep to find all files containing the old string and load them into the argument list
+    vim.cmd("args `rg --files-with-matches --no-ignore-vcs " .. old .. "`")
+    -- Perform the substitution across all files in the argument list with confirmation
+    vim.cmd("argdo %s/" .. old .. "/" .. new .. "/gc | update")
+  end, { desc = "Replace all occurrences across all files with confirmation (respects .gitignore)" })
+  
+  

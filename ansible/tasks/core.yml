@@ -1,9 +1,10 @@
-- name: Add neovim repository 
+- name: Add neovim repository (Debian/Ubuntu)
   become: true
   ansible.builtin.apt_repository:
     repo: ppa:neovim-ppa/unstable
+  when: ansible_os_family == "Debian"
 
-- name: Install System Packages 
+- name: Install System Packages (Debian/Ubuntu)
   become: true
   apt:
     pkg:
@@ -12,7 +13,7 @@
       - vim
       - neovim
       - wget
-      - curl 
+      - curl
       - nginx
       - snapd
       - ripgrep
@@ -23,6 +24,30 @@
       - hugo
     state: latest
     update_cache: true
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - neovim
+    - bun
+    - core
+
+- name: Install System Packages (macOS)
+  become: true
+  homebrew:
+    name:
+      - vim
+      - neovim
+      - wget
+      - curl
+      - nginx
+      - ripgrep
+      - tmux
+      - make
+      - zsh
+      - zip
+      - hugo
+    state: latest
+  when: ansible_os_family == "Darwin"
   tags:
     - install
     - neovim
