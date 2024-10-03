@@ -27,6 +27,7 @@ This configuration assumes the following keybindings
 
 ## Neovim
 
+```
 Ctrl+n - open/close file tree
 Ctrl+g - open/close terminal
 Ctrl+m - move focus from window/file tree/terminal
@@ -42,3 +43,4 @@ Ctrl+o - Go to next place where cursor was (To move back to :gd/:gi)
 :gc - to comment/uncomment lines in visual mode
 <leader>rf - rename occurances in current file
 <leader>ra - rename all occurances
+```
