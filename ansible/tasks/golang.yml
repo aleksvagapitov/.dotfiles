@@ -7,10 +7,8 @@
         go_url: >
           https://go.dev/dl/go{{ version }}.{{ 'linux-amd64' if ansible_os_family == 'Debian' else 'darwin-amd64' }}.tar.gz
 
-    - name: Download Go tarball
-      get_url:
-        url: "{{ go_url }}"
-        dest: "go{{ version }}.tar.gz"
+    - name: Download Go tarball using wget
+      command: wget -O go{{ version }}.tar.gz {{ go_url }}
 
     - name: Remove previous Go installation
       become: true
@@ -33,5 +31,18 @@
     - name: Apply profile changes and verify Go installation
       shell: . ~/.profile && go version
 
+  tags:
+    - go
+
+- name: Install migrate
+  vars:
+    version: v4.18.1
+  block:
+  - name: Download the specified release of migrate and unpack it in /usr/local/bin
+    become: true
+    unarchive:
+      src: https://github.com/golang-migrate/migrate/releases/download/{{version}}/migrate.linux-amd64.tar.gz
+      dest: /usr/local/bin/
+      remote_src: yes
   tags:
     - go
