@@ -41,15 +41,17 @@ alias python2=python2
 alias vim="nvim"
 alias nvimconfig="nvim ~/.config/nvim"
 
-# Path settings
+# Path Settings
+export DOTNET_ROOT=/usr/local/share/dotnet
+export PATH=$DOTNET_ROOT:$HOME/.dotnet/tools:$PATH
+
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 export PATH="/usr/local/opt/python@3.9/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
-export DOTNET_ROOT=$HOME/.dotnet
 export GOPATH="$HOME/.local/share/go"
-export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
 export PATH=$HOME/.local/bin:$PATH
+
 
 # bun setup and completions
 if [ -s "$HOME/.bun/_bun" ]; then
