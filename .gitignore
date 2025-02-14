@@ -1,3 +1,4 @@
 configstore
 dotnet-install.sh
 nvim/.config/go/
+*.tar.gz

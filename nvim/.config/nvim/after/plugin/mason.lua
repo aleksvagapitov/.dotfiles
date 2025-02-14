@@ -58,18 +58,6 @@ lspconfig.pylsp.setup{
   settings = {
     pylsp = {
       plugins = {
-        pylint = { 
-          enabled = true, 
-          args = {
-            "--disable=C0103",  -- Disable "module name doesn't conform to snake_case"
-            "--disable=R0903",  -- Disable "too few public methods"
-            "--disable=E1136",  -- Disable "missing type annotation"
-            "--disable=C0114",  -- Disable "missing module docstring"
-            "--disable=C0115",  -- Disable "missing class docstring"
-            "--disable=C0116"   -- Disable "missing function docstring"
-          }
-        },
-
         -- Enable Black for auto-formatting
         black = { enabled = true },
       }
