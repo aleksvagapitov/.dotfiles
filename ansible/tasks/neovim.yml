@@ -12,6 +12,7 @@
     owner: "{{ ansible_env.USER }}"
     group: "{{ ansible_env.USER }}"
     recurse: yes 
+  ignore_errors: yes
   tags:
     - neovim
 
