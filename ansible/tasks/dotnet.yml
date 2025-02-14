@@ -3,7 +3,7 @@
     - dotnet
   block:
     - name: Download dotnet install script
-      command: curl -o dotnet-install.sh https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh
+      command: curl -fsSL -o dotnet-install.sh https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh
     - name: Make dotnet install script executable
       command: chmod +x ./dotnet-install.sh
     - name: Install dotnet
