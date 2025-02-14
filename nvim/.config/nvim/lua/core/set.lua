@@ -5,6 +5,12 @@ vim.g.OmniSharp_selector_findusages = 'fzf'
 vim.wo.number = true -- show line numbers
 
 vim.opt.guicursor = ""
+vim.o.updatetime = 250
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end,
+})
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

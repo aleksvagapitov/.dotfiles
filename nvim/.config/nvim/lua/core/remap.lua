@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 -- Basic Remaps
 vim.keymap.set("n", "<C-s>", ":w<cr>")
+vim.keymap.set("n", "<leader>b", ":b#<CR>")
 
 -- Disable Arrow Keys
 vim.keymap.set("n", "<Up>", "<nop>")
